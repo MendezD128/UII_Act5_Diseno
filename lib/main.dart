@@ -8,34 +8,38 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       // Application name
       title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          title: const Text('Mostrar imagenes',
+              style: TextStyle(color: Colors.white)),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text('Danna Vianey Mendez Avila 6I',
+                  style: TextStyle(fontSize: 20)),
+              SizedBox(
+                height: 250.0,
+                width: 450.0,
+                child: Image.asset(
+                  'assets/porsche.png',
+                  fit: BoxFit.fitWidth,
+                ),
+              ),
+              SizedBox(
+                  height: 250.0,
+                  width: 450.0,
+                  child: Image.network(
+                    'https://www.cnet.com/a/img/resize/0fc5b93100c6e7b496c1abdceee3191888ba9173/hub/2022/07/01/2db8161e-5063-401d-8582-3d26786543a8/2022-porsche-911-carrera-gts-001.jpg?auto=webp&width=1200',
+                    fit: BoxFit.fitWidth,
+                  ))
+            ],
+          ),
         ),
       ),
     );
